@@ -1,0 +1,8 @@
+.idea/
+larpc/*.go
+
+docker/.alice/*
+docker/.bob/*
+
+.idea/workspace.xml
+.idea/rainbow.iml
