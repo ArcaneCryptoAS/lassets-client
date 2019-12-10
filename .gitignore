@@ -1,5 +1,6 @@
 .idea/
 larpc/*.go
+.envrc
 
 docker/.alice/*
 docker/.bob/*

@@ -1,6 +1,0 @@
-#! /usr/bin/env bash
-
-# echo executed commands
-set -o xtrace
-
-lacd --port=10456 --lnddir=docker/.bob --lndrpchost=localhost:10012 --laddir=docker/.alice "$@"
