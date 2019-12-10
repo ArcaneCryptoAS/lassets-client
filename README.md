@@ -41,14 +41,15 @@ COMMANDS:
 GLOBAL OPTIONS:
    --port value                 port to run lightning asset grpc daemon on (default: 10456)
    --restport value             port to run lightning asset rest server (default: 8081)
-   --laddir value               the location of lad dir (default: "/Users/olav/.lac")
+   --laddir value               the location of lad dir (default: "/Users/USER
+/.lac")
    --network value              which bitcoin network to run on, regtest | testnet | mainnet (default: "regtest")
    --rebalancefrequency value   how often to rebalance channels (default: 0)
    --netaddress value           our ip-address, that other hosts can reach us at (default: "localhost:10456")
    --priceserver_address value  host:port the price server is running on (default: "http://127.0.0.1:3001")
    --serveraddress value        the host:port the asset server is running on (default: "localhost:10455")
    --insecureserver             whether the connection to the server should use TLS or not
-   --lnddir value               the full path to lnd directory (default: "/Users/olav/.lnd")
+   --lnddir value               the full path to lnd directory (default: "/Users/USER/.lnd")
    --lndrpchost value           host:port of lnd daemon (default: "localhost:10011")
    --help, -h                   show help
    --version, -v                print the version
