@@ -61,8 +61,10 @@ func (a AssetClient) CreateContract(ctx context.Context, req *larpc.ClientCreate
 		ContractType:    req.ContractType,
 	}
 
-	expectedInitAmount := convertPercentOfAssetToSats(req.Amount, latest[req.Asset], 100)
-	expectedMarginAmount := convertPercentOfAssetToSats(req.Amount, latest[req.Asset], res.PercentMargin)
+	latestPrice := price[req.Asset]
+
+	expectedInitAmount := convertPercentOfAssetToSats(req.Amount, latestPrice, 100)
+	expectedMarginAmount := convertPercentOfAssetToSats(req.Amount, latestPrice, res.PercentMargin)
 
 	switch req.ContractType {
 	case larpc.ContractType_FUNDED:
@@ -94,7 +96,7 @@ func (a AssetClient) CreateContract(ctx context.Context, req *larpc.ClientCreate
 
 		ExpectedMarginAmount: expectedMarginAmount,
 		ExpectedInitAmount:   expectedInitAmount,
-		OurPrice:             price[req.Asset],
+		OurPrice:             latestPrice,
 
 		ServerPrice:   res.AssetPrice,
 		PercentMargin: res.PercentMargin,
