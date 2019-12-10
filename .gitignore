@@ -5,4 +5,3 @@ docker/.alice/*
 docker/.bob/*
 
 .idea/workspace.xml
-.idea/rainbow.iml
