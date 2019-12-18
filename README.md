@@ -13,6 +13,16 @@ The server side will be open-sourced soon, and we will also host a server if
  you just want to run the client part.
  
 ### Installing  
+First download the project
+```
+go get -u github.com/ArcaneCryptoAS/lassets-client
+```
+
+cd to the project:
+```
+cd $GOPATH/github.com/ArcaneCryptoAS/lassets-client
+```
+
 To install the project, run in the project root directory
 ```
 go install ./...
