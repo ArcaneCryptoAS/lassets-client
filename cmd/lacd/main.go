@@ -13,15 +13,15 @@ import (
 	"github.com/improbable-eng/grpc-web/go/grpcweb"
 	"google.golang.org/grpc/credentials"
 
-	"gitlab.com/arcanecrypto/lnassets/util"
+	"github.com/ArcaneCryptoAS/lassets-client/util"
 
 	"github.com/boltdb/bolt"
 	"github.com/sirupsen/logrus"
 	"github.com/urfave/cli"
 	"google.golang.org/grpc"
 
-	"gitlab.com/arcanecrypto/lnassets/build"
-	"gitlab.com/arcanecrypto/lnassets/larpc"
+	"github.com/ArcaneCryptoAS/lassets-client/build"
+	"github.com/ArcaneCryptoAS/lassets-client/larpc"
 )
 
 var (

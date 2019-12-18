@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"github.com/ArcaneCryptoAS/lassets-client/build"
+	"github.com/ArcaneCryptoAS/lassets-client/larpc"
 	"github.com/urfave/cli"
-	"gitlab.com/arcanecrypto/lnassets/build"
-	"gitlab.com/arcanecrypto/lnassets/larpc"
 	"google.golang.org/grpc"
 	"os"
 )
