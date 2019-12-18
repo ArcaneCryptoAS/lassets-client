@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
 
-lacd --network=regtest --lndrpchost=localhost:10012 --lnddir=$GOPATH/github.com/ArcaneCryptoAS/lassets-server/docker/.alice "$@"
+lacd --network=regtest --lndrpchost=localhost:10011 --lnddir=$GOPATH/src/github.com/ArcaneCryptoAS/lassets-server/docker/.alice "$@"
