@@ -10,7 +10,7 @@ import (
 	"github.com/btcsuite/btcutil"
 	"github.com/lightningnetwork/lnd/lnrpc"
 
-	"gitlab.com/arcanecrypto/lnassets/larpc"
+	"github.com/ArcaneCryptoAS/lassets-client/larpc"
 )
 
 var _ larpc.AssetClientServer = &AssetClient{}
