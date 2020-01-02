@@ -2,12 +2,19 @@
 This project is the client side of a naive implementation of [lightning
  assets](http://research.paradigm.xyz/RainbowNetwork.pdf).
 
-The purpose of this client is to create synthetic assets on the lightning
- network, by opening "contracts" with a server. The client and server will
-  continuously rebalance the contract, thereby making sure the satoshi balance
-   between them is always X [ASSET]. The asset of the contract
-    can be any asset both the client and server support. To determine the
-     price of the contract, the server and client have to agree on an oracle.
+#### What are lightning assets?
+With this project, you can circumvent the problem of volatility in Bitcoin, and "peg" your lightning balance to
+a stable(or unstable) currency of your choice. This can be your local currency, dollar, euro, ethereum etc.
+It is non-custodial, meaning noone can take money from you, yay :tada:
+
+#### How does it work
+As a client, you open "contracts" with the server. The client and server will continuously rebalance the
+contract, by sending sats client --> server if the price has dropped, or server --> client if the price
+has increased. The goal is to ensure the balance of the contract is always X [ASSET]. The asset of the contract
+can be any asset both the client and server support. To determine the price of the contract, the server and
+client have to agree on an oracle. As of today, this common price feed is [bitmex](https://bitmex.com).
+
+The client comes configured out of the box to connect to a server we are running.
 
 ### Installing  
 First download the project
@@ -30,8 +37,14 @@ laccli
 lacd
 ```
 
-To start the client daemon on regtest, run the script located in the root folder of this project.
-To run this command, the [Lightning Assets Server](https://github.com/ArcaneCryptoAS/lassets-server) is required and needs to run.
+If you already have a lnd-node you want to connect to, run `lacd --network=testnet` and everything should connect.
+
+Try to open a contract!
+```shell script
+laccli opencontract --amount=5 --asset=USD # opens contract for 5 usd
+```
+
+To start the client daemon on regtest, you first need a [Lightning Assets Server](https://github.com/ArcaneCryptoAS/lassets-server) running, then run:
 ```
 ./lacd
 ```
