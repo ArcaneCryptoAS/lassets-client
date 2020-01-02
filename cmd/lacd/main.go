@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"crypto/tls"
 	"fmt"
 	"net"
@@ -40,7 +41,7 @@ var (
 	defaultLndDir     = util.CleanAndExpandPath("~/.lnd")
 	defaultLndRPCPort = "localhost:10011"
 
-	serverAddress = "localhost:10455"
+	defaultServerAddress = "lightningassets.arcane.no:10455"
 )
 
 var (
@@ -112,9 +113,9 @@ func main() {
 		cli.StringFlag{
 			Name:  flag_serveraddress,
 			Usage: "the host:port the asset server is running on",
-			Value: serverAddress,
+			Value: defaultServerAddress,
 		},
-		cli.BoolFlag{
+		cli.BoolTFlag{
 			Name:  flag_insecureserver,
 			Usage: "whether the connection to the server should use TLS or not",
 		},
@@ -284,7 +285,10 @@ func newServerConnection(address string, insecure bool,
 		opts = append(opts, grpc.WithTransportCredentials(creds))
 	}
 
-	serverConn, err := grpc.Dial(address, opts...)
+	withTimeout, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	defer cancel()
+
+	serverConn, err := grpc.DialContext(withTimeout, address, opts...)
 	if err != nil {
 		return nil, nil, fmt.Errorf("unable to connect to RPC server: %v",
 			err)
